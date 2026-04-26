@@ -4,46 +4,31 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Paleta Premium - Dra. Sonis Paz */
-  --background: oklch(0.97 0.01 85); /* Bege/creme suave */
-  --foreground: oklch(0.35 0.05 140); /* Verde oliva escuro */
-  --card: oklch(0.99 0.005 85); /* Branco quente */
-  --card-foreground: oklch(0.35 0.05 140);
-  --popover: oklch(0.99 0.005 85);
-  --popover-foreground: oklch(0.35 0.05 140);
-  --primary: oklch(0.55 0.08 95); /* Dourado oliva elegante */
-  --primary-foreground: oklch(0.99 0.005 85);
-  --secondary: oklch(0.94 0.015 85); /* Bege mais claro */
-  --secondary-foreground: oklch(0.35 0.05 140);
-  --muted: oklch(0.92 0.02 85);
-  --muted-foreground: oklch(0.50 0.04 140);
-  --accent: oklch(0.60 0.10 95); /* Dourado oliva accent */
-  --accent-foreground: oklch(0.99 0.005 85);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.88 0.02 85);
-  --input: oklch(0.92 0.015 85);
-  --ring: oklch(0.55 0.08 95);
-  --chart-1: oklch(0.55 0.08 95);
-  --chart-2: oklch(0.45 0.06 140);
-  --chart-3: oklch(0.65 0.07 95);
-  --chart-4: oklch(0.75 0.05 85);
-  --chart-5: oklch(0.85 0.03 85);
+  --background: #f5f0e8;
+  --foreground: #1c1810;
+  --card: #faf6ef;
+  --card-foreground: #1c1810;
+  --popover: #faf6ef;
+  --popover-foreground: #1c1810;
+  --primary: #8c7642;
+  --primary-foreground: #faf6ef;
+  --secondary: #ede5d5;
+  --secondary-foreground: #1c1810;
+  --muted: #e5ddd0;
+  --muted-foreground: #6b5f4a;
+  --accent: #c4a05a;
+  --accent-foreground: #1c1810;
+  --destructive: #c0392b;
+  --destructive-foreground: #faf6ef;
+  --border: #d8cdb8;
+  --input: #e5ddd0;
+  --ring: #8c7642;
   --radius: 0.75rem;
-  --sidebar: oklch(0.97 0.01 85);
-  --sidebar-foreground: oklch(0.35 0.05 140);
-  --sidebar-primary: oklch(0.55 0.08 95);
-  --sidebar-primary-foreground: oklch(0.99 0.005 85);
-  --sidebar-accent: oklch(0.94 0.015 85);
-  --sidebar-accent-foreground: oklch(0.35 0.05 140);
-  --sidebar-border: oklch(0.88 0.02 85);
-  --sidebar-ring: oklch(0.55 0.08 95);
 }
 
 @theme inline {
   --font-sans: 'Lato', sans-serif;
   --font-serif: 'Playfair Display', serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -63,56 +48,85 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-xl: calc(var(--radius) + 8px);
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+  * { @apply border-border outline-ring/50; }
+  body { @apply bg-background text-foreground; }
 }
 
-/* Scroll suave */
-html {
-  scroll-behavior: smooth;
+html { scroll-behavior: smooth; }
+
+/* ── Animações ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
-/* Animações sutis */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.animate-fade-up    { animation: fade-up 0.7s cubic-bezier(.22,1,.36,1) forwards; }
+.animate-fade-in    { animation: fade-in 0.6s ease-out forwards; }
+.animate-slide-right { animation: slide-right 0.6s cubic-bezier(.22,1,.36,1) forwards; }
+
+.delay-100 { animation-delay: 0.1s; opacity: 0; }
+.delay-200 { animation-delay: 0.2s; opacity: 0; }
+.delay-300 { animation-delay: 0.3s; opacity: 0; }
+.delay-400 { animation-delay: 0.4s; opacity: 0; }
+.delay-500 { animation-delay: 0.5s; opacity: 0; }
+
+/* ── Linha dourada decorativa ── */
+.gold-line::before {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--primary);
+  margin-bottom: 1rem;
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
+/* ── Seção label ── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+}
+.section-label::before,
+.section-label::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--primary);
+  opacity: 0.6;
 }
 
-/* Decoração floral sutil */
-.floral-bg {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a89968' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* ── Seleção ── */
+::selection { background: #c4a05a33; color: var(--foreground); }
+
+/* ── Padrão sutil de fundo ── */
+.texture-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238c7642' fill-opacity='0.04'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm23-11a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM21 0l3 9H18l3-9z'/%3E%3C/g%3E%3C/svg%3E");
 }

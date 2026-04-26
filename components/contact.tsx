@@ -7,7 +7,7 @@ const contactInfo = [
     icon: Phone,
     label: "WhatsApp",
     value: "(67) 99200-6609",
-    href: "https://wa.me/5567992006609",
+    href: "https://wa.me/5567992006609?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação.",
   },
   {
     icon: Mail,
@@ -18,8 +18,8 @@ const contactInfo = [
   {
     icon: Instagram,
     label: "Instagram",
-    value: "@drasonispaz",
-    href: "https://instagram.com/drasonispaz",
+    value: "@drsonispaz",
+    href: "https://www.instagram.com/drsonispaz",
   },
 ]
 
@@ -37,7 +37,7 @@ export function Contact() {
               Entre em Contato
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Estou a disposicao para esclarecer suas duvidas e agendar sua consulta
+              Estou à disposição para esclarecer suas dúvidas e agendar sua consulta
             </p>
           </div>
 
@@ -46,8 +46,8 @@ export function Contact() {
             <div>
               {/* Professional Info */}
               <div className="mb-8 p-6 bg-background rounded-xl border border-border">
-                <h3 className="font-serif text-2xl text-foreground mb-2">
-                  Dra. Sonis Paz
+                <h3 className="font-serif text-2xl text-foreground mb-1">
+                  Dra. Sônis Paz
                 </h3>
                 <p className="text-muted-foreground mb-4">
                   Fisioterapeuta | CREFITO 436027-F
@@ -63,7 +63,7 @@ export function Contact() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 bg-background rounded-xl border border-border hover:border-primary/30 transition-colors group"
+                    className="flex items-center gap-4 p-4 bg-background rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200 group"
                   >
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
                       <item.icon className="w-5 h-5 text-primary" />
@@ -78,13 +78,13 @@ export function Contact() {
               </div>
 
               {/* Location */}
-              <div className="mt-8 p-6 bg-background rounded-xl border border-border">
+              <div className="mt-6 p-6 bg-background rounded-xl border border-border">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-foreground mb-1">Localizacao</h4>
+                    <h4 className="font-medium text-foreground mb-1">Localização</h4>
                     <p className="text-muted-foreground mb-4">
                       Work Center<br />
                       Campo Grande - MS
@@ -92,10 +92,11 @@ export function Contact() {
                     <Button
                       asChild
                       variant="outline"
+                      size="sm"
                       className="border-primary/30 hover:bg-primary/5"
                     >
                       <Link
-                        href="https://www.google.com/maps/place/Work+Center/@-20.4630019,-54.5866776,17z"
+                        href="https://www.google.com/maps/place/Work+Center/@-20.4630019,-54.5866776,17z/data=!3m1!4b1!4m6!3m5!1s0x9486e8c0b5c1d841:0x8e761a37fb38d9c7!8m2!3d-20.4630019!4d-54.5866776!16s%2Fg%2F11b7gp292_"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -110,17 +111,17 @@ export function Contact() {
 
             {/* Map */}
             <div className="relative">
-              <div className="aspect-square lg:aspect-auto lg:h-full min-h-[400px] bg-secondary rounded-2xl overflow-hidden border border-border">
+              <div className="aspect-square lg:aspect-auto lg:h-full min-h-[420px] bg-secondary rounded-2xl overflow-hidden border border-border shadow-sm">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.123456789!2d-54.5866776!3d-20.4630019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9486e8c0b5c1d841%3A0x8e761a37fb38d9c7!2sWork%20Center!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.3!2d-54.5888663!3d-20.4630019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9486e8c0b5c1d841%3A0x8e761a37fb38d9c7!2sWork%20Center!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Localizacao Work Center"
-                  className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  title="Localização Work Center - Campo Grande MS"
+                  className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                 />
               </div>
             </div>

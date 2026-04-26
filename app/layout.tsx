@@ -17,15 +17,20 @@ const lato = Lato({
 })
 
 export const metadata: Metadata = {
-  title: 'Dra. Sonis Paz | Fisioterapia Pelvica em Campo Grande',
-  description: 'Especialista em fisioterapia pelvica, reabilitacao pos-cirurgia de prostata, incontinencia urinaria e dor pelvica. Atendimento humanizado e discreto para homens e mulheres.',
-  keywords: 'fisioterapia pelvica, incontinencia urinaria, dor pelvica, reabilitacao prostata, fisioterapeuta Campo Grande, Dra Sonis Paz',
-  authors: [{ name: 'Dra. Sonis Paz' }],
+  title: 'Dra. Sônis Paz | Fisioterapia Pélvica em Campo Grande - MS',
+  description: 'Especialista em fisioterapia pélvica, reabilitação pós-cirurgia de próstata, incontinência urinária e dor pélvica crônica. Atendimento humanizado e discreto para homens e mulheres em Campo Grande - MS.',
+  keywords: 'fisioterapia pélvica, incontinência urinária, dor pélvica, reabilitação próstata, fisioterapeuta Campo Grande, Dra Sônis Paz, assoalho pélvico, auriculoterapia, acupuntura, laser terapia',
+  authors: [{ name: 'Dra. Sônis Paz' }],
   openGraph: {
-    title: 'Dra. Sonis Paz | Fisioterapia Pelvica',
-    description: 'Recupere o controle do seu corpo com seguranca e discricao. Atendimento especializado em fisioterapia pelvica.',
+    title: 'Dra. Sônis Paz | Fisioterapia Pélvica em Campo Grande',
+    description: 'Recupere o controle do seu corpo com segurança e discrição. Atendimento especializado em fisioterapia pélvica para homens e mulheres.',
     type: 'website',
     locale: 'pt_BR',
+    siteName: 'Dra. Sônis Paz',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 

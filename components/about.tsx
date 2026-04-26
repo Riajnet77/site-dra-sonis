@@ -1,83 +1,100 @@
+import Image from "next/image"
 import { CheckCircle2 } from "lucide-react"
 
 const benefits = [
-  "Controle urinario e intestinal",
-  "Reducao da dor pelvica",
-  "Recuperacao pos-cirurgica",
+  "Controle urinário e intestinal",
+  "Redução da dor pélvica crônica",
+  "Recuperação pós-cirúrgica completa",
   "Melhora da qualidade de vida",
+  "Autoestima e bem-estar integral",
+]
+
+const stats = [
+  { value: "10+", label: "Anos de experiência" },
+  { value: "500+", label: "Pacientes atendidos" },
+  { value: "6", label: "Especialidades" },
 ]
 
 export function About() {
   return (
-    <section id="sobre" className="py-20 md:py-28 bg-background floral-bg">
-      <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Content */}
-            <div>
-              <span className="text-primary text-sm tracking-widest uppercase mb-4 block">
-                Sobre a Fisioterapia Pelvica
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6">
-                O que e a Fisioterapia Pelvica?
-              </h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  A fisioterapia pelvica atua na reabilitacao e fortalecimento do 
-                  assoalho pelvico, um conjunto de musculos responsavel por sustentar 
-                  a bexiga, o intestino e os orgaos reprodutores.
-                </p>
-                <p>
-                  Com tecnicas especializadas e baseadas em evidencias cientificas, 
-                  o tratamento e feito de forma acolhedora, respeitosa e totalmente 
-                  personalizado para cada paciente.
-                </p>
+    <section id="sobre" className="py-24 md:py-32 bg-[#f5f0e8] texture-bg overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+            {/* Foto */}
+            <div className="relative">
+              {/* Moldura decorativa */}
+              <div className="absolute -top-4 -left-4 w-full h-full border border-[#c4a05a]/30 rounded-2xl" />
+
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/dra-sonis-sobre.jpg"
+                  alt="Dra. Sônis Paz — Fisioterapeuta Pélvica"
+                  fill
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1c1810]/50 via-transparent to-transparent" />
+
+                {/* Badge flutuante */}
+                <div className="absolute bottom-6 left-6 right-6 bg-[#1c1810]/90 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                  <p className="font-serif text-lg text-white mb-0.5">Dra. Sônis Paz</p>
+                  <p className="text-white/50 text-xs tracking-wide">Fisioterapeuta Pélvica · CREFITO 436027-F</p>
+                </div>
               </div>
 
-              {/* Benefits */}
-              <div className="mt-8 space-y-3">
-                <h3 className="font-medium text-foreground mb-4">Beneficios do tratamento:</h3>
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground">{benefit}</span>
+              {/* Stats flutuantes */}
+              <div className="absolute -right-6 top-1/3 flex flex-col gap-3">
+                {stats.map((stat, i) => (
+                  <div key={i} className="bg-card rounded-xl px-4 py-3 shadow-xl border border-border text-center min-w-[100px]">
+                    <p className="font-serif text-2xl text-[#8c7642] leading-none">{stat.value}</p>
+                    <p className="text-[10px] text-muted-foreground mt-0.5 leading-tight">{stat.label}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Visual Element */}
-            <div className="relative">
-              <div className="aspect-[4/5] bg-gradient-to-br from-secondary via-secondary to-primary/10 rounded-2xl overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                      <svg
-                        className="w-12 h-12 text-primary"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        />
-                      </svg>
-                    </div>
-                    <p className="font-serif text-2xl text-foreground mb-2">
-                      Cuidado que transforma
-                    </p>
-                    <p className="text-muted-foreground">
-                      Cada paciente e unico, assim como seu tratamento
-                    </p>
+            {/* Conteúdo */}
+            <div className="lg:pl-8">
+              <div className="section-label">Sobre a Fisioterapia Pélvica</div>
+
+              <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6 leading-tight">
+                Um cuidado especializado,<br />
+                <em className="text-[#8c7642] not-italic">personalizado para você</em>
+              </h2>
+
+              <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
+                <p>
+                  A fisioterapia pélvica atua na reabilitação e fortalecimento do
+                  assoalho pélvico — um conjunto de músculos responsável por sustentar
+                  a bexiga, o intestino e os órgãos reprodutores.
+                </p>
+                <p>
+                  Com técnicas modernas e baseadas em evidências científicas, o
+                  tratamento é conduzido com total respeito, discrição e atenção
+                  individual — sem julgamentos, em um ambiente seguro e acolhedor.
+                </p>
+              </div>
+
+              <div className="space-y-3 mb-8">
+                {benefits.map((benefit, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#8c7642] flex-shrink-0" />
+                    <span className="text-foreground">{benefit}</span>
                   </div>
+                ))}
+              </div>
+
+              {/* Assinatura */}
+              <div className="flex items-center gap-4 pt-6 border-t border-border">
+                <div className="w-12 h-12 rounded-full bg-[#8c7642]/10 flex items-center justify-center border border-[#8c7642]/20 flex-shrink-0">
+                  <span className="font-serif text-[#8c7642] text-lg">SP</span>
+                </div>
+                <div>
+                  <p className="font-serif text-foreground">Dra. Sônis Paz</p>
+                  <p className="text-xs text-muted-foreground tracking-wide">Fisioterapeuta Pélvica</p>
                 </div>
               </div>
-              {/* Decorative */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
-              <div className="absolute -top-4 -left-4 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
             </div>
           </div>
         </div>

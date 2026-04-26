@@ -1,64 +1,41 @@
 import { Shield, Heart, Sparkles, Target } from "lucide-react"
 
-const differentials = [
-  {
-    icon: Shield,
-    title: "Atendimento Individualizado",
-    description: "Cada sessao e 100% dedicada a voce, respeitando sua privacidade e necessidades especificas.",
-  },
-  {
-    icon: Heart,
-    title: "Ambiente Acolhedor",
-    description: "Um espaco seguro e confortavel, pensado para que voce se sinta a vontade durante todo o tratamento.",
-  },
-  {
-    icon: Sparkles,
-    title: "Tecnicas Modernas",
-    description: "Utilizacao de metodos e tecnologias baseados nas mais recentes evidencias cientificas.",
-  },
-  {
-    icon: Target,
-    title: "Foco em Resultado",
-    description: "Compromisso com a sua melhora real e sustentavel, acompanhando cada etapa da sua evolucao.",
-  },
+const items = [
+  { icon: Shield, title: "Atendimento Individualizado", description: "Cada sessão é 100% dedicada a você, com total respeito à sua privacidade. Sem julgamentos, com discrição absoluta." },
+  { icon: Heart, title: "Ambiente Acolhedor", description: "Um espaço seguro e confortável, pensado para que você se sinta à vontade durante todo o processo de cuidado." },
+  { icon: Sparkles, title: "Técnicas Modernas", description: "Métodos baseados nas mais recentes evidências científicas, garantindo resultados reais e duradouros para você." },
+  { icon: Target, title: "Foco em Resultado", description: "Compromisso com sua melhora real e sustentável, acompanhando cada etapa da sua evolução de perto." },
 ]
 
 export function Differentials() {
   return (
-    <section id="diferenciais" className="py-20 md:py-28 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="diferenciais" className="py-24 md:py-32 bg-[#f5f0e8]">
+      <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <span className="text-primary text-sm tracking-widest uppercase mb-4 block">
-              Por que me escolher
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
-              Diferenciais do Atendimento
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Meu compromisso e oferecer um cuidado de excelencia, 
-              onde voce e o centro de todo o processo.
+
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+            <div>
+              <div className="section-label">Por que me escolher</div>
+              <h2 className="font-serif text-3xl md:text-4xl text-foreground leading-tight">
+                Diferenciais do<br />
+                <em className="text-[#8c7642] not-italic">atendimento</em>
+              </h2>
+            </div>
+            <p className="text-muted-foreground max-w-sm md:text-right leading-relaxed">
+              Meu compromisso é oferecer um cuidado de excelência onde você é o centro de todo o processo.
             </p>
           </div>
 
-          {/* Differentials Grid */}
-          <div className="grid sm:grid-cols-2 gap-8">
-            {differentials.map((item, index) => (
-              <div
-                key={index}
-                className="flex gap-6 p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-7 h-7 text-primary" />
+          <div className="grid sm:grid-cols-2 gap-6">
+            {items.map((item, i) => (
+              <div key={i}
+                className="flex gap-5 p-7 bg-card rounded-2xl border border-border hover:border-[#c4a05a]/30 hover:shadow-md transition-all duration-300 group">
+                <div className="w-14 h-14 rounded-2xl bg-[#8c7642]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#8c7642]/20 transition-colors border border-[#8c7642]/10">
+                  <item.icon className="w-6 h-6 text-[#8c7642]" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-xl text-foreground mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
+                  <h3 className="font-serif text-xl text-foreground mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                 </div>
               </div>
             ))}

@@ -9,14 +9,8 @@ export function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true)
-    }, 2000)
-
-    const tooltipTimer = setTimeout(() => {
-      setShowTooltip(true)
-    }, 5000)
-
+    const timer = setTimeout(() => setIsVisible(true), 2000)
+    const tooltipTimer = setTimeout(() => setShowTooltip(true), 5000)
     return () => {
       clearTimeout(timer)
       clearTimeout(tooltipTimer)
@@ -29,7 +23,7 @@ export function WhatsAppButton() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {/* Tooltip */}
       {showTooltip && (
-        <div className="relative bg-card rounded-xl shadow-lg border border-border p-4 max-w-[250px] animate-fade-in-up">
+        <div className="relative bg-card rounded-xl shadow-lg border border-border p-4 max-w-[240px] animate-fade-in-up">
           <button
             onClick={() => setShowTooltip(false)}
             className="absolute -top-2 -right-2 w-6 h-6 bg-muted rounded-full flex items-center justify-center hover:bg-muted-foreground/20 transition-colors"
@@ -37,25 +31,29 @@ export function WhatsAppButton() {
           >
             <X className="w-3 h-3 text-muted-foreground" />
           </button>
-          <p className="text-sm text-foreground">
-            Ola! Posso ajudar a agendar sua consulta?
+          <p className="text-sm text-foreground font-medium mb-0.5">
+            Olá! Posso ajudar? 👋
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Agende sua avaliação pelo WhatsApp
           </p>
         </div>
       )}
 
       {/* Button */}
-      <Link
-        href="https://wa.me/5567992006609?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta."
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group flex items-center justify-center w-14 h-14 bg-[#25D366] rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-        aria-label="Conversar pelo WhatsApp"
-      >
-        <MessageCircle className="w-6 h-6 text-white" />
-        
+      <div className="relative">
+        <Link
+          href="https://wa.me/5567992006609?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center w-14 h-14 bg-[#25D366] rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+          aria-label="Conversar pelo WhatsApp"
+        >
+          <MessageCircle className="w-6 h-6 text-white" />
+        </Link>
         {/* Pulse effect */}
-        <span className="absolute w-14 h-14 rounded-full bg-[#25D366] animate-ping opacity-25" />
-      </Link>
+        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20 pointer-events-none" />
+      </div>
     </div>
   )
 }

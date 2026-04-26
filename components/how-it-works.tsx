@@ -1,65 +1,31 @@
 const steps = [
-  {
-    number: "01",
-    title: "Avaliacao",
-    description: "Conversa inicial para entender suas necessidades e historico de saude.",
-  },
-  {
-    number: "02",
-    title: "Diagnostico Funcional",
-    description: "Avaliacao completa para identificar a causa dos sintomas.",
-  },
-  {
-    number: "03",
-    title: "Plano Personalizado",
-    description: "Criacao de um protocolo de tratamento unico para voce.",
-  },
-  {
-    number: "04",
-    title: "Acompanhamento",
-    description: "Sessoes regulares com monitoramento da sua evolucao.",
-  },
+  { number: "01", title: "Avaliação", description: "Conversa inicial para entender suas necessidades, histórico de saúde e expectativas." },
+  { number: "02", title: "Diagnóstico Funcional", description: "Avaliação completa para identificar a causa dos sintomas e traçar o melhor caminho." },
+  { number: "03", title: "Plano Personalizado", description: "Protocolo de tratamento único, feito exclusivamente para você e seus objetivos." },
+  { number: "04", title: "Acompanhamento", description: "Sessões regulares com monitoramento contínuo da sua evolução e resultados." },
 ]
 
 export function HowItWorks() {
   return (
-    <section className="py-20 md:py-28 bg-background floral-bg">
-      <div className="container mx-auto px-4">
+    <section className="py-24 md:py-32 bg-card texture-bg">
+      <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
           <div className="text-center mb-16">
-            <span className="text-primary text-sm tracking-widest uppercase mb-4 block">
-              Jornada de Cuidado
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
-              Como Funciona
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Um processo simples e acolhedor, pensado para sua comodidade
-            </p>
+            <div className="section-label justify-center">Jornada de Cuidado</div>
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground">Como Funciona</h2>
           </div>
 
-          {/* Steps */}
           <div className="grid md:grid-cols-4 gap-8">
-            {steps.map((step, index) => (
-              <div key={index} className="relative text-center">
-                {/* Connector Line */}
-                {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-px bg-gradient-to-r from-primary/30 to-transparent" />
+            {steps.map((step, i) => (
+              <div key={i} className="relative text-center group">
+                {i < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-7 left-[55%] w-[90%] h-px bg-gradient-to-r from-[#c4a05a]/30 to-transparent" />
                 )}
-                
-                {/* Step Number */}
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="font-serif text-xl text-primary">{step.number}</span>
+                <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-[#1c1810] flex items-center justify-center border border-[#8c7642]/30 group-hover:border-[#c4a05a]/60 transition-colors">
+                  <span className="font-serif text-[#c4a05a] text-base">{step.number}</span>
                 </div>
-                
-                {/* Content */}
-                <h3 className="font-serif text-xl text-foreground mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {step.description}
-                </p>
+                <h3 className="font-serif text-lg text-foreground mb-2">{step.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
